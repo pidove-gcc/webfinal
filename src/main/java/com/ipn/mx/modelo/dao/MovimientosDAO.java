@@ -33,11 +33,11 @@ public class MovimientosDAO {
     private Connection con;
     BasicDataSource basicDataSource = new BasicDataSource();
 
-    public Connection conecta() throws SQLException {
+     public Connection conecta() throws SQLException {
         basicDataSource.setDriverClassName("org.postgresql.Driver");
-        basicDataSource.setUsername("postgres");
-        basicDataSource.setPassword("tacosdepastor89");
-        basicDataSource.setUrl("jdbc:postgresql://localhost:5432/tienda");
+        basicDataSource.setUsername("jgqsmfxyrhnuep");
+        basicDataSource.setPassword("7cdf8ff522e0aaaee78f789a6a1ed49cc0456880bb3d83d53d1d01cfe0cb63e7");
+        basicDataSource.setUrl("jdbc:postgresql://ec2-54-161-208-31.compute-1.amazonaws.com:5432/d8jkca5obbq3ig");
         basicDataSource.setValidationQuery("select 1");
         con = null;
         try {
