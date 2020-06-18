@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>
+            #{msg['articulo.tituloGeneral']}
+        </title>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+        <h:outputScript library="js" name="bootstrap.min.js"/>
+        <h:outputScript library="js" name="jquery-3.2.1.slim.min.js"/>
+        <h:outputScript library="js" name="popper.min.js"/>
+        <f:event type="preRenderView" listener="#{usuarioMB.verificarsesion()}"/>
+    </h:head>
+    <h:body style="background-color: #9c9c9c;">
+        <div class="container">
+            <div class="card border-dark mb-3">
+                <div class="card-header text-white" style="background-color: #000000;">
+                    <h1>
+                        #{msg['articulo.tituloLista']}
+                    </h1>
+                </div>
+                <div class="card-body text-primary">
+                    <div class="table-responsive">
+                        <h:panelGrid>
+                            <f:view>
+                                <h:form id="frmArticulo">
+                                    <h:dataTable value="#{articuloMB.listaDeArticulos}" var="dto" class="table table-hover table-sm text-white" style="background-color: #000000;">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg.claveArticulo}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{dto.claveArticulo}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg['articulo.nombreArticulo']}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{dto.nombreArticulo}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg['articulo.imagen']}"/>
+                                            </f:facet>
+                                            <p:graphicImage width="100" height="100" value="#{articuloMB.image}" > <f:param name="id" value="#{dto.claveArticulo}" /> </p:graphicImage>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg['articulo.descripcion']}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{dto.descripcion}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg['articulo.existencia']}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{dto.existencia}"/>
+                                        </h:column>
+                                        
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg['articulo.precio']}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{dto.precio}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg.acciones}"/>
+                                            </f:facet>
+                                            <h:commandLink action="#{articuloMB.prepareUpdate()}"
+                                                           actionListener="#{articuloMB.seleccionarArticulo}">
+                                                <f:param name="claveSel" value="#{dto.claveArticulo}"/>
+                                                <h:graphicImage value="/resources/iconos/interface-blue.png" width="30" height="30"/>
+                                            </h:commandLink>
+                                            <h:commandLink action="#{articuloMB.delete()}"
+                                                           actionListener="#{articuloMB.seleccionarArticulo}">
+                                                <f:param name="claveSel" value="#{dto.claveArticulo}"/>
+                                                <h:graphicImage value="/resources/iconos/rubbish-red.png" width="30" height="30"/>
+                                            </h:commandLink>
+                                        </h:column>
+                                    </h:dataTable>
+
+                                    <h:commandLink action="#{articuloMB.prepareAdd()}">
+                                        <h:graphicImage value="/resources/iconos/interfaceadd.png" width="30" height="30"/>
+                                    </h:commandLink>
+                                    <h:commandButton styleClass="btn btn-success" value="volver al inicio" action="#{usuarioMB.ini()}"/>
+                                </h:form>
+                            </f:view>
+                        </h:panelGrid>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

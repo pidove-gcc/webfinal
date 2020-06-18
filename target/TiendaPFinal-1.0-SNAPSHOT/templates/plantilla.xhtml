@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <title>Facelets Template</title>
+        <f:event type="preRenderView" listener="#{usuarioMB.verificarsesion()}"/>
+    </h:head>
+ 
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <h:form>
+                    <p:menubar>
+                        <p:submenu label="Usuario" icon="pi pi-users">
+                            <p:menuitem  value="lista de usuarios" url="#{facesContext.externalContext.request.contextPath}/faces/usuario/listadoUsuario.xhtml"/>
+                        </p:submenu>
+                        <p:submenu label="Articulo" icon="pi pi-pencil">
+                            <p:menuitem  value="lista de articulos" url="#{facesContext.externalContext.request.contextPath}/faces/articulo/listadoArticulo.xhtml"/>
+                        </p:submenu>
+                        <p:submenu label="Movimientos" icon="pi pi-shopping-cart">
+                            <p:menuitem  value="lista de movimientos" url="#{facesContext.externalContext.request.contextPath}/faces/movimientos/listadoMovimientos.xhtml"/>
+                        </p:submenu>
+                        <p:submenu label="Reportes" icon="pi pi-file-pdf">
+                            <p:menuitem  value="Reporte Usuarios" url="reportesservlet?accion=reporteusuarios" target="_blank"/>
+                             <p:menuitem  value="Reporte de Entradas" url="reportesservlet?accion=reporteentrada" target="_blank"/>
+                              <p:menuitem  value="Reporte de Salidas" url="reportesservlet?accion=reportesalida" target="_blank"/>
+                              <p:menuitem  value="Grafica de articulos" url="graficaservlet?accion=reportegrafica" target="_blank"/>
+                        </p:submenu>
+                        <p:menuitem value="Bienvenido: #{usuarioMB.nombreusu()}"/>
+                        <f:facet name="options">
+                            <p:commandButton actionListener="#{usuarioMB.cerrarsesion()}" value="Cerrar sesion" action="/inicio?face-redirect=true" />
+                        </f:facet>
+                    </p:menubar>
+                </h:form>
+            
+            </ui:insert>
+            
+        </div>
+
+        <div id="content" class="center_content">
+            <center>
+                <img src="Banner.png"/>
+            </center>
+        </div>
+    </h:body>
+
+</html>
