@@ -39,7 +39,6 @@ public class ArticuloDAO {
             con = dataSource.getConnection();
             System.out.println("Conexion establecida");
         } catch (SQLException e) {
-            e.printStackTrace();
         }
         return con;
 

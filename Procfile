@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/endorsed/webapp-runner-9.0.27.1.jar --port $PORT target/*.war
+web: java $JAVA_OPTS -jar target/endorsed/webapp-runner.jar --port $PORT target/*.war
