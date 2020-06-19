@@ -17,7 +17,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+//import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.PhaseId;
@@ -33,7 +35,8 @@ import org.primefaces.model.file.UploadedFile;
  *
  * @author alfre
  */
-@Named(value = "articuloMB")
+@ManagedBean(name = "articuloMB")
+//@Named(value = "articuloMB")
 @SessionScoped
 @Data
 @AllArgsConstructor

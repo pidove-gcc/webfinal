@@ -14,7 +14,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
@@ -26,7 +28,8 @@ import lombok.NoArgsConstructor;
  *
  * @author alfre
  */
-@Named(value = "usuarioMB")
+@ManagedBean(name = "usuarioMB")
+//@Named(value = "usuarioMB")
 @SessionScoped
 @Data
 @AllArgsConstructor

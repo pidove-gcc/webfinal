@@ -15,7 +15,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+//import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
@@ -28,7 +30,8 @@ import lombok.NoArgsConstructor;
  *
  * @author alfre
  */
-@Named(value = "movimientosMB")
+@ManagedBean(name = "movimientosMB")
+//@Named(value = "movimientosMB")
 @SessionScoped
 @Data
 @AllArgsConstructor
