@@ -87,7 +87,7 @@
                                             <f:selectItem itemValue="S" itemLabel="Salida"/>                                            
                                         </h:selectOneMenu>
                                         
-                                        <h:outputText value="#{msg['movimientos.claveArticulo']}" 
+                                        <h:outputText value="#{msg['movimientos.nombreArticulo']}" 
                                                       class="col-sm-2 col-form-label"/>
                                         
                                         <p:selectOneMenu id="txtClaveArticulo" value="#{movimientosMB.dto.entidad.claveArticulo}">
@@ -96,7 +96,7 @@
                                             <f:ajax execute="txtClaveArticulo" render="pseleccionado"/>
                                             
                                         </p:selectOneMenu>
-                                        <p:outputLabel value="Producto seleccionado:"/>
+                                        <p:outputLabel value="#{msg['movimientos.claveArticulo']}"/>
                                         <p:outputLabel id="pseleccionado" value="#{movimientosMB.dto.entidad.claveArticulo}"/>
                                       
                                         
