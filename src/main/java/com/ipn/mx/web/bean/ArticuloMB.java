@@ -134,7 +134,6 @@ public class ArticuloMB extends BaseBean implements Serializable {
         try{
             dto = dao.load(dto);
         }catch(Exception e){
-            e.printStackTrace();
         }
     }
     
